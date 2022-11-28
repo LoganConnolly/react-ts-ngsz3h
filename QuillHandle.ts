@@ -38,8 +38,7 @@ class QuillHandle {
 				let s_temp = frac[i].match(/[+\-*\/]/g);
 				if (temp !== null) {
 					for (let x of temp) {
-						if (!isNaN(Number(x))) numbs.push(Number(x));
-						else throw `Something went very wrong (${this.errors.no_num})`;
+						
 					}
 					current = numbs[0];
 					if (s_temp !== null){
@@ -79,11 +78,22 @@ class QuillHandle {
 			throw `Something went very wrong (${this.errors.no_frac})`;
 		} else {
 			for (let x of temp) {
-				var y = x.replace('{', '(');
-				y = y.replace('}', ')');
+				var y = x.replace(/\{/g, '(');
+				y = y.replace(/\}/g, ')');
 				final.push(y);
+			}
+			for (let y of final){
+				var w = y.match(/sqrt(\d)/g);
+				for(let op of w){
+					
+				}
 			}
 		}
 		return final;
 	};
+}
+
+type Fraction = {
+	numerator: string,
+	denominator: string
 }
