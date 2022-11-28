@@ -1,0 +1,22 @@
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.row > div {
+  display: inline-block;
+  width: 50px;
+  height: fit-content;
+  border-radius: 20%;
+  box-shadow: 7.5px 5px 5px #787878;
+}
+.row > div.num {
+  background-color: lightcoral;
+}
+.row > div.sym {
+  background-color: aquamarine;
+}
+.row > div.clear {
+  background-color: tomato;
+}

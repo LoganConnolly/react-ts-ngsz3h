@@ -1,0 +1,10 @@
+h1,
+p {
+  font-family: Lato;
+}
+#num_pad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
