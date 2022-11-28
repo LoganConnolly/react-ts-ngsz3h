@@ -82,10 +82,12 @@ class QuillHandle {
 				y = y.replace(/\}/g, ')');
 				final.push(y);
 			}
-			for (let y of final){
-				var w = y.match(/sqrt(\d)/g);
-				for(let op of w){
-					
+			if (temp.includes('\\sqrt')){
+				for (let y of final){
+					var w = y.match(/sqrt(\d)/g);
+					for(let op of w){
+						//op.replace(/\\sqrt(\d)/g, )
+					}
 				}
 			}
 		}
