@@ -36,31 +36,33 @@ class QuillHandle {
 				let current: number = NaN;
 				let temp = frac[i].match(/\d/g);
 				let s_temp = frac[i].match(/[+\-*\/]/g);
-				if (temp !== null && s_temp !== null) {
+				if (temp !== null) {
 					for (let x of temp) {
 						if (!isNaN(Number(x))) numbs.push(Number(x));
 						else throw `Something went very wrong (${this.errors.no_num})`;
 					}
 					current = numbs[0];
-					for (let y of s_temp) {
-						let n_two = numbs[count + 1];
-						switch (y) {
-							case '*':
-								current *= n_two;
-								break;
-							case '+':
-								current += n_two;
-								break;
-							case '-':
-								current -= n_two;
-								break;
-							case '/':
-								current /= n_two;
-								break;
-							default:
-								throw `Something went very wrong (${this.errors.no_num})`;
+					if (s_temp !== null){
+						for (let y of s_temp) {
+							let n_two = numbs[count + 1];
+							switch (y) {
+								case '*':
+									current *= n_two;
+									break;
+								case '+':
+									current += n_two;
+									break;
+								case '-':
+									current -= n_two;
+									break;
+								case '/':
+									current /= n_two;
+									break;
+								default:
+									throw `Something went very wrong (${this.errors.no_num})`;
+							}
+							count++;
 						}
-						count++;
 					}
 				}
 			}
