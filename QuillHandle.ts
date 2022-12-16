@@ -20,7 +20,7 @@ class QuillHandle {
 	UpdateDecode = (e: string) => {
 		this.eq_numbs = [];
 		this.to_decode = e;
-		let numbs = e.split(/^\d/);
+		let numbs = e.split(/^\d/g);
 		for (let x of numbs){
 			this.eq_numbs.push(Number(x));
 		}
